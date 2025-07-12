@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/faviconlogo.jpeg" type="image/x-icon">
+    <title>Home Page</title>
+</head>
+
+<body>
+    <!-- <div class="main-container">
+
+        <div class="upper-navbar">
+            <div class="company-name">
+                <h1 class="Clipcart">Clipcart</h1>
+            </div>
+            <div class="user-profile">
+                <a href="userprofille.html">
+                    <label for="filechoose" class="userprofile">
+                        <i class="fa-solid fa-camera"></i>
+                    </label>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="search-div">
+            <input type="text" name="" id="searchbar" placeholder="Type Your Choice">
+            <i class="fa-solid fa-magnifying-glass" id="searchlogo"></i>
+        </div>
+        <section class="catagories-section">
+
+            <div class="catagories">
+                <div class="imgs">
+                    <img src="men.png" style="width: 80px; object-fit: cover;" alt="">
+                </div>
+                <div class="heading">
+                    <h1>Men's Wear</h1>
+                </div>
+            </div>
+            <div class="catagories">
+                <div class="imgs">
+                    <img src="women.png" style="height: 100px; object-fit: cover;" alt="">
+                </div>
+                <div class="heading">
+                    <h1>Women's Wear</h1>
+                </div>
+            </div>
+        </section>
+        <section class="cards" id="uploadid">
+            <div class="cardsall">
+                <div class="card">
+                    <img src="images/cloth.jpeg" width="80px" alt="">
+                </div>
+                <div class="price">
+                    <h1>100$</h1>
+                </div>
+            </div>
+            <div class="cardsall">
+                <div class="card">
+                    <img src="images/cloth.jpeg" width="80px" alt="">
+                </div>
+                <div class="price">
+                    <h1>100$</h1>
+                </div>
+            </div>
+            <div class="cardsall">
+                <div class="card">
+                    <img src="images/cloth.jpeg" width="80px" alt="">
+                </div>
+                <div class="price">
+                    <h1>100$</h1>
+                </div>
+            </div>
+        </section>
+
+    </div>
+ -->
+
+    <header>
+        <h1 class="site-name">ShopEasy</h1>
+        <div class="profile-icon">
+            <img id="profileIcon" src="https://via.placeholder.com/100" class="profile-img" width="60px" height="60px"/>
+        </div>
+    </header>
+
+    <section class="search-section">
+        <input type="text" placeholder="Search for products..." />
+    </section>
+
+   <section id="productSection" class="cards"></section>
+
+<script>
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const productSection = document.getElementById('productSection');
+
+  if (products.length === 0) {
+    productSection.innerHTML = "<p>No products found.</p>";
+  } else {
+    products.forEach(product => {
+      const productCard = `
+        <div class="cardsall">
+          <div class="card">
+            <img src="${product.image}" style="width: 100%; height: 150px; object-fit: cover;" />
+          </div>
+          <div class="price"><h1>₹${product.price}</h1></div>
+        </div>
+      `;
+      productSection.innerHTML += productCard;
+    });
+  }
+
+  const icon = document.getElementById("profileIcon");
+  const stored = localStorage.getItem("userProfile");
+  if (stored) icon.src = stored;
+</script>
+
+
+</body>
+
+</html>

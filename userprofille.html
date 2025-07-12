@@ -1,0 +1,107 @@
+<!-- <input type="file" name="" id="filechoose">
+
+
+<div id="popup"
+                style="display:none; position:fixed; top:30%; left:40%; background:#fff; padding:20px; border:1px solid black;">
+                <input type="file" id="fileInput" /><br><br>
+                <button onclick="addToCart()">Add to Cart</button>
+                <button onclick="closePopup()">Cancel</button>
+            </div>
+
+            
+            <div id="cart">
+                <h3>Added..</h3>
+                <ul id="cartItems"></ul>
+            </div> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="userprofile.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="profile-container">
+        <div class="profile-card">
+            <img id="profileImage" src="https://via.placeholder.com/120" style="border-radius: 50%; width:60px; height:60px;" alt="Profile Picture" />
+            <h2>Manav Mehta</h2>
+            <p><i class="fas fa-envelope"></i> manav@example.com</p>
+            <p><i class="fas fa-phone"></i> +91-9876543210</p>
+            <p><i class="fas fa-location-dot"></i> Mumbai, India</p>
+
+            <!-- Add product form -->
+            <!-- <img id="profileImage" class="profile-img" src="https://via.placeholder.com/150" alt="Profile Picture" /> -->
+
+            <br />
+            <label for="imageInput" class="custom-upload">Choose Profile Photo</label>
+            <input type="file" id="imageInput" accept="image/*" />
+
+            <br><br>
+            <!-- Add product form -->
+            <input type="file" id="productImage"/>
+            <label for="productImage" id="chooseproductid">Choose Product to Sell</label>
+            <input type="number" id="productPrice" style="width: 200px; padding: 7px;"/>
+            <button onclick="addProduct()" style="padding: 9px 35px; color: white; background-color: red; outline: none; border: none; border-radius: 10px;">Add</button>
+
+        </div>
+    </div>      
+
+            <script>
+                function addProduct() {
+                    const file = document.getElementById('productImage').files[0];
+                    const price = document.getElementById('productPrice').value;
+
+                    if (!file || !price) {
+                        alert("Choose image and enter price.");
+                        return;
+                    }
+
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        let products = JSON.parse(localStorage.getItem('products')) || [];
+
+                        products.push({
+                            image: e.target.result,
+                            price: price
+                        });
+
+                        localStorage.setItem('products', JSON.stringify(products));
+                        alert('Product added!');
+                    };
+                    reader.readAsDataURL(file);
+                }
+
+                const input = document.getElementById("imageInput");
+                const img = document.getElementById("profileImage");
+
+                // Load from localStorage on page load
+                window.onload = function () {
+                    const savedImage = localStorage.getItem("userProfile");
+                    if (savedImage) {
+                        img.src = savedImage;
+                    }
+                };
+
+                // Handle file input change
+                input.addEventListener("change", () => {
+                    const file = input.files[0];
+                    if (!file) return;
+
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        img.src = e.target.result;
+                        // Save to localStorage
+                        localStorage.setItem("userProfile", e.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+    border: 6px solid purple;
+    background: rgb(4, 245, 237);
+    padding: 25px;
+    border-radius: 15px;
+    height: 400px;
+    width: 350px;
+    background-size: cover;
+    background-position: center;
+}
+
+.userprofile{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.userprofile i{
+    font-size: 3rem;
+}
+
+input[type="text"],input[type="password"]{
+    width: 100%;
+    padding: 10px 30px;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid black;
+    font-size: 1.2rem;
+}
+
+input[type="text"]:focus,input[type="password"]:focus{
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid purple;
+}
+
+input[type="text"]::placeholder,input[type="password"]::placeholder{
+    color: black;
+    font-size: 1.2rem;
+}
+
+#filechoose{
+    display: none;
+}
+
+button{
+    padding: 10px 20px;
+    width: 100%;
+    background-color: purple;
+    font-size: 1.1rem;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
