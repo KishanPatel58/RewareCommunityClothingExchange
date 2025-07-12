@@ -20,3 +20,8 @@ Welcome to **Clipcart**, a responsive and dynamic shopping website where users c
 
 ## 📂 Project Structure
 
+## Team Members:-
+KARAN TRIVEDI (TEAM LEADER)
+MANAV MEHTA
+KISHAN PATEL
+YASH MOHANANI
